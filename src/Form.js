@@ -45,10 +45,8 @@ export default function SignUp() {
   };
   const handleChangeFile1 = (file) => {
     setFile(file);
-    console.log(file);
   };
   const handleChangeFile = () => {
-    console.log(file);
     // if (file == null) return;
     // const imageRef = ref(storage, `images/${file.name + auth.currentUser.uid}`);
     // uploadBytes(imageRef, file).then(() => {
@@ -80,21 +78,8 @@ export default function SignUp() {
       .catch((err) => setError(err.message));
   };
 
-  const postCollection = collection(db, "posts");
-
-  const createPost = async () => {
-    await addDoc(postCollection, {
-      some: "some",
-      author: { id: auth.currentUser.uid },
-    });
-    console.log(auth.currentUser.uid);
-  };
-
   return (
     <ThemeProvider theme={theme}>
-      <Button type="submit" onClick={createPost}>
-        Save
-      </Button>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
